@@ -63,6 +63,7 @@ Let's walk through the algorithm's execution with the full move tree, and show w
 Here is the function for scoring the game:
 
 # @player is the turn taking player
+```python
 def score(game)
     if game.win?(@player)
         return 10
@@ -72,6 +73,8 @@ def score(game)
         return 0
     end
 end
+```
+
 Simple enough, return +10 if the current player wins the game, -10 if the other player wins and 0 for a draw. You will note that who the player is doesn't matter. X or O is irrelevant, only who's turn it happens to be.
 
 And now the actual minimax algorithm; note that in this implementation a choice or move is simply a row / column address on the board, for example [0,2] is the top right square on a 3x3 board.
@@ -104,13 +107,13 @@ end
 
 <hr>
 <h2>Program:</h2>
-```python
-import time
 
+```python
+
+import time
 class Game:
     def __init__(self):
         self.initialize_game()
-
     def initialize_game(self):
         self.current_state = [['.','.','.'],
                               ['.','.','.'],
